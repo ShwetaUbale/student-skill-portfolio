@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Portfolio Hub</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,7 +15,7 @@
             <h1 class="logo">Skill Portfolio Hub</h1>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="profile.html">Profiles</a></li>
                 <li><a href="projects.html">Projects</a></li>
             </ul>
@@ -24,7 +25,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Welcome to Skill Portfolio Hub</h2>
+            <div class="hero-badge">🚀 Welcome to Our Portfolio</div>
+            <h2>Showcasing <span class="gradient-text">Student Excellence</span></h2>
 
             <p>
                 Explore the skills, achievements, and projects of our talented
@@ -32,7 +34,52 @@
                 technical abilities, and creative work in web development.
             </p>
 
-            <a href="profile.html" class="btn">View Student Profiles</a>
+            <div class="hero-buttons">
+                <a href="profile.html" class="btn primary">View Student Profiles</a>
+                <a href="projects.html" class="btn secondary">Explore Projects</a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Students</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Projects</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Skills</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=600&fit=crop" alt="Coding workspace" class="hero-image">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Creative Design</h3>
+                <p>Beautiful, modern interfaces crafted with attention to detail and user experience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3>Technical Skills</h3>
+                <p>Proficient in HTML, CSS, JavaScript, and modern web development frameworks.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Innovation</h3>
+                <p>Creative problem-solving and innovative solutions to real-world challenges.</p>
+            </div>
         </div>
     </section>
 
