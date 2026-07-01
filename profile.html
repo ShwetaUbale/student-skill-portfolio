@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Skill Portfolio Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0B;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 5% 80px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #A5B4FC;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #A5B4FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #6B7280;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5% 80px;
+        }
+
+        .member-card {
+            background: #111113;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        .member-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .member-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .role {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: #A5B4FC;
+            font-weight: 600;
+        }
+
+        .description {
+            color: #9CA3AF;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .tag {
+            background: rgba(99, 102, 241, 0.08);
+            color: #C7D2FE;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+
+        .view-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            transition: all 0.3s;
+        }
+        .view-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 120px 5% 60px; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="logo">Skill Portfolio Hub</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html" class="active">Team</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">
+            <i class="fas fa-users"></i> OUR TEAM
+        </div>
+        <h1>Built By Students,<br>For Students</h1>
+        <p>Four developers collaborating to create something amazing</p>
+    </section>
+        
+    <div class="team-grid">
+        
+        <!-- TASK 1 - TANMAY MANE -->
+        <div class="member-card">
+            <div class="card-header">
+                <div class="avatar">TM</div>
+                <div class="member-info">
+                    <h3>Tanmay Mane</h3>
+                    <div class="role">
+                        <i class="fas fa-home"></i> Student 1 - Homepage Developer
+                    </div>
+                </div>
+            </div>
+            <p class="description">Builds complete homepage layout with navbar and introduction section.</p>
+            <div class="tech-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Layout</span>
+                <span class="tag">Navbar</span>
+            </div>
+            <a href="tanmay.html" class="view-btn">
+                View Profile <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- TASK 2 - APARNA KURVE -->
+        <div class="member-card">
+            <div class="card-header">
+                <div class="avatar">AK</div>
+                <div class="member-info">
+                    <h3>Aparna Kurve</h3>
+                    <div class="role">
+                        <i class="fas fa-user"></i> Student 2 - Profile Developer
+                    </div>
+                </div>
+            </div>
+            <p class="description">Profile Section Developer + GitHub Manager. Creates student profile cards with skills display.</p>
+            <div class="tech-tags">
+                <span class="tag">React</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Git</span>
+                <span class="tag">UI Design</span>
+            </div>
+            <a href="aparna.html" class="view-btn">
+                View Profile <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- TASK 3 - VAISHNAVI SHIRKE -->
+        <div class="member-card">
+            <div class="card-header">
+                <div class="avatar">VS</div>
+                <div class="member-info">
+                    <h3>Vaishnavi Shirke</h3>
+                    <div class="role">
+                        <i class="fas fa-folder"></i> Student 3 - Projects Developer
+                    </div>
+                </div>
+            </div>
+            <p class="description">Projects Section Developer. Adds project cards with descriptions and live links.</p>
+            <div class="tech-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">CSS Grid</span>
+                <span class="tag">Animations</span>
+            </div>
+            <a href="vaishnavi.html" class="view-btn">
+                View Profile <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- TASK 4 - SHWETA UBALE -->
+        <div class="member-card">
+            <div class="card-header">
+                <div class="avatar">SU</div>
+                <div class="member-info">
+                    <h3>Shweta Ubale</h3>
+                    <div class="role">
+                        <i class="fas fa-code-branch"></i> Student 4 - GitHub Manager
+                    </div>
+                </div>
+            </div>
+            <p class="description">GitHub Manager & Team Lead. Repository setup, branch creation, PR merging & final deployment.</p>
+            <div class="tech-tags">
+                <span class="tag">GitHub</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Deployment</span>
+                <span class="tag">Leadership</span>
+            </div>
+            <a href="shweta.html" class="view-btn">
+                View Profile <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

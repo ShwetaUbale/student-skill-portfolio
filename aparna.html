@@ -3,35 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aparna Kurve - Profile</title>
+    <title>Aparna Kurve - Profile Developer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0B;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 20px 40px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #A5B4FC;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            gap: 12px;
+        }
+        .profile-header {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .avatar-big {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: white;
+            color: #6366F1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+        .profile-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        .role-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .section {
+            background: #111113;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #A5B4FC;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section p {
+            color: #9CA3AF;
+            line-height: 1.7;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #C7D2FE;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        .contribution-list {
+            list-style: none;
+            color: #9CA3AF;
+        }
+        .contribution-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .contribution-list li:last-child {
+            border-bottom: none;
+        }
+        .contribution-list i {
+            color: #10B981;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <h1 class="logo">Skill Portfolio Hub</h1>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="profile.html" class="active">Profiles</a></li>
+            <li><a href="profile.html">Team</a></li>
             <li><a href="projects.html">Projects</a></li>
         </ul>
     </nav>
 
-    <!-- Yaha Paste Kar - Line 65 wala code -->
-    <section id="profiles">
-        <h2 class="section-title">Aparna Kurve</h2>
-        <div class="profiles-wrapper">
-            <div class="flip-card">
-                <!-- Tera flip card ka poora HTML -->
+    <div class="profile-container">
+        <a href="profile.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+        
+        <div class="profile-header">
+            <div class="avatar-big">AK</div>
+            <h1>Aparna Kurve</h1>
+            <div class="role-badge">Student 2 - Profile Section Developer + GitHub Manager</div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-info-circle"></i> About My Task</h2>
+            <p>As Profile Section Developer and GitHub Manager, I'm responsible for creating all student profile cards and managing our GitHub repository. I handle the team page design and ensure everyone's contributions are properly showcased.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-code"></i> Skills & Technologies</h2>
+            <div class="skills">
+                <span class="skill">React</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">HTML5</span>
+                <span class="skill">CSS3</span>
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">UI Design</span>
+                <span class="skill">Responsive Design</span>
             </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <h3>Skills: HTML, CSS, JavaScript, React, Git</h3>
-            <a href="https://github.com/bytebyAparna" target="_blank">My GitHub</a><br><br>
-            <a href="profile.html">← Back to All Profiles</a>
-        </div>
-    </section>
 
-    <script src="script.js"></script>
+        <div class="section">
+            <h2><i class="fas fa-tasks"></i> My Contributions</h2>
+            <ul class="contribution-list">
+                <li><i class="fas fa-check-circle"></i> Built complete `profile.html` team page</li>
+                <li><i class="fas fa-check-circle"></i> Designed individual profile pages for all members</li>
+                <li><i class="fas fa-check-circle"></i> Created responsive card layouts with animations</li>
+                <li><i class="fas fa-check-circle"></i> Implemented modern dark theme UI</li>
+                <li><i class="fas fa-check-circle"></i> Managed Git branches and commits</li>
+                <li><i class="fas fa-check-circle"></i> Coordinated team code integration</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
