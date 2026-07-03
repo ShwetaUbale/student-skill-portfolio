@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team - Skill Portfolio Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Team - Skill Portfolio Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -12,20 +12,31 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0A0A0B;
+            font-family: 'Space Grotesk', sans-serif;
+            background: #000000;
             color: #fff;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Particle Canvas Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
 
         /* Navbar */
-        .navbar {
-            background: rgba(10, 10, 11, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 1rem 5%;
+       .navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.2rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
@@ -34,165 +45,254 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+       .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00F5FF, #FF00FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .nav-links {
+       .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
-        .nav-links a {
-            color: #9CA3AF;
+       .nav-links a {
+            color: #888;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
         }
-        .nav-links a:hover, .nav-links a.active {
+       .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00F5FF, #FF00FF);
+            transition: width 0.3s;
+        }
+       .nav-links a:hover,.nav-links a.active {
             color: #fff;
         }
+       .nav-links a:hover::after,.nav-links a.active::after {
+            width: 100%;
+        }
 
-        /* Hero */
-        .hero {
-            padding: 160px 5% 80px;
+        /* Main */
+       .main-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 140px 5% 80px;
+        }
+
+       .hero {
             text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 0 auto 100px;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #A5B4FC;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+       .glitch {
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 0%, #A5B4FC 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 20px;
+            position: relative;
+            text-transform: uppercase;
         }
-        .hero p {
-            font-size: 1.2rem;
-            color: #6B7280;
+       .glitch::before,.glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+       .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #00F5FF;
+            z-index: -1;
+        }
+       .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #FF00FF;
+            z-index: -2;
+        }
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
+            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
+        }
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+            40% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
+        }
+
+       .typewriter {
+            font-size: 1.4rem;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 30px;
+            min-height: 30px;
+        }
+       .typewriter span {
+            border-right: 3px solid #00F5FF;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
         }
 
         /* Team Grid */
-        .team-grid {
+       .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            max-width: 1300px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 5% 80px;
         }
 
-        .member-card {
-            background: #111113;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
-        }
-        .member-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+       .member-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
+       .member-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00F5FF, #FF00FF, #00F5FF);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
         }
-        .avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+
+       .member-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 30px 80px rgba(0, 245, 255, 0.2);
+        }
+       .member-card:hover::before {
+            opacity: 1;
+        }
+
+       .card-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.03;
+            line-height: 1;
+        }
+
+       .avatar-3d {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #00F5FF, #FF00FF);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0, 245, 255, 0.3);
+            transform: translateZ(20px);
         }
-        .member-info h3 {
-            font-size: 1.3rem;
+
+       .member-card h3 {
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+            transform: translateZ(10px);
         }
-        .role {
+
+       .task-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-            color: #A5B4FC;
-            font-weight: 600;
-        }
-
-        .description {
-            color: #9CA3AF;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            gap: 8px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            color: #00F5FF;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            transform: translateZ(10px);
         }
 
-        .tech-tags {
+       .member-desc {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            transform: translateZ(5px);
+        }
+
+       .skills-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+            transform: translateZ(5px);
         }
-        .tag {
-            background: rgba(99, 102, 241, 0.08);
-            color: #C7D2FE;
-            padding: 6px 12px;
+       .skill-chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #aaa;
+            padding: 6px 14px;
             border-radius: 8px;
             font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(99, 102, 241, 0.15);
+            font-weight: 600;
         }
 
-        .view-btn {
+       .view-btn-3d {
             width: 100%;
-            background: linear-gradient(135deg, #6366F1, #8B5CF6);
-            color: white;
-            padding: 12px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #00F5FF, #FF00FF);
+            color: #000;
+            padding: 16px;
+            border-radius: 14px;
             text-decoration: none;
             text-align: center;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 800;
+            font-size: 0.95rem;
             display: block;
             transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateZ(15px);
         }
-        .view-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+       .view-btn-3d:hover {
+            transform: translateZ(15px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 245, 255, 0.5);
         }
 
         @media (max-width: 768px) {
-            .hero { padding: 120px 5% 60px; }
-            .team-grid { grid-template-columns: 1fr; }
+           .main-wrapper { padding: 120px 5% 60px; }
+           .team-grid { grid-template-columns: 1fr; }
+           .glitch { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
+
     <nav class="navbar">
-        <h1 class="logo">Skill Portfolio Hub</h1>
+        <h1 class="logo">SkillHub</h1>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="profile.html" class="active">Team</a></li>
@@ -200,108 +300,147 @@
         </ul>
     </nav>
 
-    <section class="hero">
-        <div class="badge">
-            <i class="fas fa-users"></i> OUR TEAM
-        </div>
-        <h1>Built By Students,<br>For Students</h1>
-        <p>Four developers collaborating to create something amazing</p>
-    </section>
-        
-    <div class="team-grid">
-        
-        <!-- TASK 1 - TANMAY MANE -->
-        <div class="member-card">
-            <div class="card-header">
-                <div class="avatar">TM</div>
-                <div class="member-info">
-                    <h3>Tanmay Mane</h3>
-                    <div class="role">
-                        <i class="fas fa-home"></i> Student 1 - Homepage Developer
-                    </div>
-                </div>
-            </div>
-            <p class="description">Builds complete homepage layout with navbar and introduction section.</p>
-            <div class="tech-tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">Layout</span>
-                <span class="tag">Navbar</span>
-            </div>
-            <a href="tanmay.html" class="view-btn">
-                View Profile <i class="fas fa-arrow-right"></i>
-            </a>
+    <main class="main-wrapper">
+        <div class="hero">
+            <h1 class="glitch" data-text="THE FANTASTICK_4">THE FANTASTICK_4</h1>
+            <p class="typewriter"><span id="typed-text"></span></p>
         </div>
 
-        <!-- TASK 2 - APARNA KURVE -->
-        <div class="member-card">
-            <div class="card-header">
-                <div class="avatar">AK</div>
-                <div class="member-info">
-                    <h3>Aparna Kurve</h3>
-                    <div class="role">
-                        <i class="fas fa-user"></i> Student 2 - Profile Developer
-                    </div>
-                </div>
-            </div>
-            <p class="description">Profile Section Developer + GitHub Manager. Creates student profile cards with skills display.</p>
-            <div class="tech-tags">
-                <span class="tag">React</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Git</span>
-                <span class="tag">UI Design</span>
-            </div>
-            <a href="aparna.html" class="view-btn">
-                View Profile <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
+        <div class="team-grid">
 
-        <!-- TASK 3 - VAISHNAVI SHIRKE -->
-        <div class="member-card">
-            <div class="card-header">
-                <div class="avatar">VS</div>
-                <div class="member-info">
-                    <h3>Vaishnavi Shirke</h3>
-                    <div class="role">
-                        <i class="fas fa-folder"></i> Student 3 - Projects Developer
-                    </div>
+            <!-- TANMAY -->
+            <div class="member-card" data-tilt>
+                <div class="card-number">01</div>
+                <div class="avatar-3d">TM</div>
+                <h3>Tanmay Mane</h3>
+                <div class="task-badge">
+                    <i class="fas fa-bolt"></i> Homepage Dev
                 </div>
-            </div>
-            <p class="description">Projects Section Developer. Adds project cards with descriptions and live links.</p>
-            <div class="tech-tags">
-                <span class="tag">Figma</span>
-                <span class="tag">UI/UX</span>
-                <span class="tag">CSS Grid</span>
-                <span class="tag">Animations</span>
-            </div>
-            <a href="vaishnavi.html" class="view-btn">
-                View Profile <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- TASK 4 - SHWETA UBALE -->
-        <div class="member-card">
-            <div class="card-header">
-                <div class="avatar">SU</div>
-                <div class="member-info">
-                    <h3>Shweta Ubale</h3>
-                    <div class="role">
-                        <i class="fas fa-code-branch"></i> Student 4 - GitHub Manager
-                    </div>
+                <p class="member-desc">Crafts the first impression. Builds homepage, navbar & hero sections with pixel-perfect precision.</p>
+                <div class="skills-row">
+                    <span class="skill-chip">HTML5</span>
+                    <span class="skill-chip">CSS3</span>
+                    <span class="skill-chip">Responsive</span>
                 </div>
+                <a href="tanmay.html" class="view-btn-3d">
+                    View Profile <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <p class="description">GitHub Manager & Team Lead. Repository setup, branch creation, PR merging & final deployment.</p>
-            <div class="tech-tags">
-                <span class="tag">GitHub</span>
-                <span class="tag">CI/CD</span>
-                <span class="tag">Deployment</span>
-                <span class="tag">Leadership</span>
-            </div>
-            <a href="shweta.html" class="view-btn">
-                View Profile <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
 
-    </div>
+            <!-- APARNA -->
+            <div class="member-card" data-tilt>
+                <div class="card-number">02</div>
+                <div class="avatar-3d">AK</div>
+                <h3>Aparna Kurve</h3>
+                <div class="task-badge">
+                    <i class="fas fa-code"></i> Profile Dev
+                </div>
+                <p class="member-desc">Profile Section Dev + GitHub Manager. Creates stunning cards & manages entire repository workflow.</p>
+                <div class="skills-row">
+                    <span class="skill-chip">React</span>
+                    <span class="skill-chip">Git</span>
+                    <span class="skill-chip">UI/UX</span>
+                </div>
+                <a href="aparna.html" class="view-btn-3d">
+                    View Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- VAISHNAVI -->
+            <div class="member-card" data-tilt>
+                <div class="card-number">03</div>
+                <div class="avatar-3d">VS</div>
+                <h3>Vaishnavi Shirke</h3>
+                <div class="task-badge">
+                    <i class="fas fa-layer-group"></i> Projects Dev
+                </div>
+                <p class="member-desc">Projects Section Developer. Showcases our work with beautiful cards, descriptions & live demos.</p>
+                <div class="skills-row">
+                    <span class="skill-chip">Figma</span>
+                    <span class="skill-chip">CSS Grid</span>
+                    <span class="skill-chip">Animations</span>
+                </div>
+                <a href="vaishnavi.html" class="view-btn-3d">
+                    View Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- SHWETA -->
+            <div class="member-card" data-tilt>
+                <div class="card-number">04</div>
+                <div class="avatar-3d">SU</div>
+                <h3>Shweta Ubale</h3>
+                <div class="task-badge">
+                    <i class="fas fa-crown"></i> Team Lead
+                </div>
+                <p class="member-desc">GitHub Manager & Team Lead. Handles repo setup, PR reviews, deployments & team coordination.</p>
+                <div class="skills-row">
+                    <span class="skill-chip">GitHub</span>
+                    <span class="skill-chip">CI/CD</span>
+                    <span class="skill-chip">Leadership</span>
+                </div>
+                <a href="shweta.html" class="view-btn-3d">
+                    View Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles Config
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#00F5FF', '#FF00FF'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#00F5FF', opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
+                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } }
+            }
+        });
+
+        // Typewriter Effect
+        const texts = ['4 Developers', '1 Vision', 'Building The Future', 'With Code & Coffee'];
+        let count = 0, index = 0, currentText = '', letter = '';
+        (function type() {
+            if (count === texts.length) count = 0;
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            document.getElementById('typed-text').textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000);
+            } else {
+                setTimeout(type, 100);
+            }
+        })();
+
+        // 3D Tilt Effect
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
